@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %} 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Srin</title>
+     
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" >  
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>  
+    <!-- <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'fonts/font-awesome.min.css' %}" > 
+    <!-- <link rel="stylesheet" href="assets/fonts/font-awesome.min.css"> -->
+</head>
+
+<body>
+    {% csrf_token %}
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button><a class="navbar-brand" href="#"><strong><span style="color: rgba(88, 156, 237, 0.9); background-color: rgba(255, 255, 255, 0);">URL Shortener</span></strong></a>
+            <div class="collapse navbar-collapse" id="navcol-1"></div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead" style="background:url('{ % static 'img/bg-masthead.jpg' %}')no-repeat center center;background-size:cover;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto position-relative">
+                    <h1 class="mb-5">Shorten your URL at ease!</h1>
+                    <h1>{% if rans is 0 %}   
+                        <!--None-->
+                    {% else %}
+                    Your shortened URL :</h1>
+                    <h2><a href="http://{{rans}}" target="_blank">{{rans}}</a>:{{rans}}</h2>
+                    {%endif %}
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+                    <form  method="post">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0"><input class="form-control form-control-lg" type="text" placeholder="Enter your URL" name="uls" required="true" /></div>
+                            <div class="col-12 col-md-3"><button class="btn btn-primary btn-lg" type="submit">Shorten!</button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="showcase"></section>
+    <footer class="bg-light footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    <p class="text-muted small mb-4 mb-lg-0">© Srin 2022. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a target="_blank" href="https://www.facebook.com/srinjoy.ghosh.3979"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.linkedin.com/in/srinjoy-ghosh-053b111ba/"><i class="fa fa-linkedin fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a target="_blank" href="https://www.instagram.com/srinjoy_ghosh_unknown/"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

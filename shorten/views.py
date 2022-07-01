@@ -16,10 +16,11 @@ def index (request) :
        b.save()
        ulr='127.0.0.1:8000/'+ran
        params={'rans' : ulr}
-       return render(request,'index.html',params)
+       return render(request,'index1.html',params)
     
-    else:
-        return render(request,'index.html')    
+    else :
+        params={'rans': 0 }
+        return render(request,'index1.html',params)    
 
 def urlRedirect(request, slugs):
     data = urls.objects.get(code = slugs)
